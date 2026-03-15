@@ -61,9 +61,20 @@ header{
   position:sticky;top:0;z-index:100;
 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.header-left{display:flex;align-items:center;gap:16px}
-.logo-text{font-size:15px;font-weight:800;color:var(--gold)}
-.logo-sub{font-size:13px;color:var(--text-m)}
+.header-left{display:flex;align-items:center;gap:12px}
+.logo-mark{
+  width:36px;height:36px;
+  background:#111e35;
+  border:2px solid var(--gold);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);
+  flex-shrink:0;
+}
+.logo-text-wrap{display:flex;align-items:baseline;gap:8px}
+.logo-obt{font-size:18px;font-weight:900;color:var(--text);letter-spacing:-.3px}
+.logo-divider{color:var(--text-m);font-weight:300;font-size:16px}
+.logo-tagline{font-size:11px;font-weight:600;color:var(--text-m);text-transform:uppercase;letter-spacing:.8px}
 .header-right{display:flex;align-items:center;gap:10px}
 
 /* Language toggle */
@@ -114,8 +125,7 @@ header{
 .hero-title{
   font-size:50px;font-weight:900;line-height:1.12;margin-bottom:20px;
   letter-spacing:-1px;
-  background:linear-gradient(135deg,#fff 0%,var(--gold-l) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  color:#fff;
 }
 html[lang="he"] .hero-title{letter-spacing:0}
 .hero-title em{
@@ -317,8 +327,19 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-
   <div class="container">
     <div class="header-inner">
       <div class="header-left">
-        <span class="logo-text">OBT Remote</span>
-        <span class="logo-sub" data-i18n="logo-sub">by Kilon &amp; Biderman</span>
+        <div class="logo-mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="3" y1="9" x2="21" y2="9"/>
+            <line x1="3" y1="15" x2="21" y2="15"/>
+            <line x1="12" y1="9" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-obt">OBT</span>
+          <span class="logo-divider">|</span>
+          <span class="logo-tagline">Innovation in Human Capital</span>
+        </div>
       </div>
       <div class="header-right">
         <div class="lang-toggle">
@@ -522,24 +543,24 @@ const STRINGS = {
     'header-cta':    'Book a Call →',
     'badge-remote':  '🌍 &nbsp;100% Remote · Zoom · Anywhere',
     'hero-title':    'Find the one change<em>that moves everything.</em>',
-    'hero-sub':      'A personal leadership process, delivered entirely over Zoom — helping you identify the one most leveraged change you can make right now, and actually follow through on it.',
+    'hero-sub':      'OBT stands for <strong>One Big Thing</strong> — the single most leveraged change available to you right now. This program helps you find it, understand what\'s blocking it, and build a plan to act on it. Delivered entirely over Zoom.',
     'hero-cta':      'Let\'s talk →',
     'hero-note':     'Fully remote · No travel required · Start within days',
     'callout-title': 'Designed for distributed teams and remote leaders',
     'callout-text':  'Whether your team spans cities, time zones, or continents — this program delivers the same depth of organizational insight without anyone needing to be in the same room. All sessions run live on Zoom, with full facilitation, reflection, and structured follow-through.',
     'pkg-label':     'The Program',
     'pkg-title':     '2 group sessions &nbsp;+&nbsp; 2 personal check-ins',
-    'pkg-sub':       'This is a personal process — not a team program. Two in-depth group sessions on Zoom to do the core work, plus two short 1:1 check-ins for personal support and follow-through. It can run with a single participant or alongside colleagues who are each doing their own individual process.',
+    'pkg-sub':       'Two in-depth group sessions on Zoom to do the core work, plus two short 1:1 check-ins for personal support and follow-through. The program integrates AI-based diagnostic and process-management tools built specifically for OBT (One Big Thing).',
     'sess1-label':   'Group Zoom Sessions',
-    'sess1-desc':    'The core work — opening, the OBT model, distilling your One Big Thing, and confronting it with reality',
+    'sess1-desc':    'Opening, the One Big Thing model, distilling your OBT (One Big Thing), and confronting it with reality',
     'sess1-detail':  '📹 &nbsp;Zoom · 3 hours each',
     'sess2-label':   '1:1 Coaching Sessions',
     'sess2-desc':    'Personal support during the implementation phase',
     'sess2-detail':  '🎯 &nbsp;Zoom · 30 min each',
-    'pkg-promise':   'You leave with a defined OBT, a concrete action plan, and personal accountability — not just insights',
+    'pkg-promise':   'You leave knowing your One Big Thing, with a concrete action plan and personal accountability — not just insights',
     'val-label':     'Why It Works',
     'val-title':     'Value you feel from session one',
-    'val-sub':       'The OBT methodology cuts through noise to find the one shift that delivers the most leverage — so you stop spreading energy thin.',
+    'val-sub':       'The One Big Thing methodology cuts through noise to find the one shift that delivers the most leverage — so you stop spreading energy thin.',
     'v1-title':      'One focused change',
     'v1-text':       'Not ten things to fix. The One Big Thing — the precise shift that creates the most momentum in your specific context.',
     'v2-title':      'Works across distances',
@@ -552,8 +573,8 @@ const STRINGS = {
     'how-title':     'How the program unfolds',
     'how-sub':       'Two deep group sessions do the heavy lifting. Two short 1:1 sessions keep you grounded and accountable between and after.',
     's1-tag':        'Group Session 1 · 3 hours · Zoom',
-    's1-title':      'Opening, the OBT model, and distilling your One Big Thing',
-    's1-text':       'We open the process with a personal introduction to the OBT methodology. Together we work to identify and distill your One Big Thing — the most leveraged potential change — and reflect it honestly against your current reality.',
+    's1-title':      'Opening, the OBT (One Big Thing) model, and distilling your One Big Thing',
+    's1-text':       'We open the process with a personal introduction to the OBT (One Big Thing) methodology. Together we work to identify and distill your One Big Thing — the most leveraged potential change — and reflect it honestly against your current reality.',
     's2-tag':        'Group Session 2 · 3 hours · Zoom',
     's2-title':      'Competing commitments, underlying assumptions, and your action plan',
     's2-text':       'We surface the competing commitments and underlying assumptions that silently maintain the status quo. With that clarity, we build a personal, step-by-step action plan you can actually commit to and implement.',
@@ -573,8 +594,8 @@ const STRINGS = {
     'who5':          'A talent who has the drive but needs help finding the right lever',
     'who6':          'Anyone ready to do honest inner work — and translate it into action',
     'fac-label':     'The Facilitators',
-    'fac-title':     '45 combined years of organizational work',
-    'fac-sub':       'Two practitioners who understand organizations — one from the management side, one from the human psychology side.',
+    'fac-title':     'Gilad Kilon &amp; Yehuda Biderman',
+    'fac-sub':       'Two organizational consultants who have spent decades working closely with people inside organizations — each bringing a different lens.',
     'fac1-title':    'Organizational Consultant, MA · 20+ years',
     'fac1-bio':      'Works with managers and key contributors on leadership development, organizational change, and performance. Brings a grounded, field-tested perspective to every engagement.',
     'fac2-title':    'Psychologist &amp; Organizational Consultant, MA · 25+ years',
@@ -595,24 +616,24 @@ const STRINGS = {
     'header-cta':    'לשיחת היכרות ←',
     'badge-remote':  '🌍 &nbsp;100% מרחוק · זום · מכל מקום',
     'hero-title':    'מצאו את השינוי האחד<em>שמניע את הכל.</em>',
-    'hero-sub':      'תהליך מנהיגות אישי, המתנהל לגמרי בזום — שעוזר לכם לזהות את השינוי האחד בעל המינוף הגבוה ביותר, ולבצע אותו בפועל.',
+    'hero-sub':      'OBT הוא <strong>One Big Thing</strong> — השינוי האחד בעל המינוף הגבוה ביותר שזמין לכם עכשיו. התוכנית עוזרת לכם למצוא אותו, להבין מה חוסם אותו, ולבנות תוכנית לביצוע. הכל בזום.',
     'hero-cta':      'בואו נדבר ←',
     'hero-note':     'מרחוק לגמרי · ללא נסיעות · מתחילים תוך ימים',
     'callout-title': 'מותאם לצוותים מבוזרים ומנהלים מרחוק',
     'callout-text':  'בין אם הצוות שלכם פרוס על פני ערים, אזורי זמן או יבשות — התוכנית מספקת את אותו עומק של תובנות ארגוניות מבלי שמישהו יצטרך להיות באותו חדר. כל המפגשים מתנהלים חי בזום, עם ליווי מלא, רפלקציה ומעקב מובנה.',
     'pkg-label':     'התוכנית',
     'pkg-title':     '2 מפגשים קבוצתיים &nbsp;+&nbsp; 2 פגישות אישיות',
-    'pkg-sub':       'זהו תהליך אישי — לא תוכנית צוותית. שני מפגשים עמוקים בזום לביצוע העבודה המרכזית, בתוספת שתי פגישות קצרות 1:1 לתמיכה אישית ומעקב. ניתן לבצע עם משתתף יחיד, או לצד קולגות שכל אחד עובר את התהליך האישי שלו.',
+    'pkg-sub':       'שני מפגשים עמוקים בזום לביצוע העבודה המרכזית, בתוספת שתי פגישות קצרות 1:1 לתמיכה אישית ומעקב. התוכנית משלבת כלי אבחון וניהול תהליך מבוססי בינה מלאכותית שנבנו במיוחד ל-OBT (One Big Thing).',
     'sess1-label':   'מפגשי זום קבוצתיים',
-    'sess1-desc':    'העבודה המרכזית — פתיחה, מודל OBT, זיקוק ה-One Big Thing ושיקופו מול המציאות',
+    'sess1-desc':    'פתיחה, מודל ה-One Big Thing, זיקוק ה-OBT (One Big Thing) שלכם ושיקופו מול המציאות',
     'sess1-detail':  '📹 &nbsp;זום · 3 שעות כל אחד',
     'sess2-label':   'פגישות אישיות 1:1',
     'sess2-desc':    'תמיכה אישית בשלב היישום',
     'sess2-detail':  '🎯 &nbsp;זום · 30 דקות כל אחד',
-    'pkg-promise':   'יוצאים עם OBT מוגדר, תוכנית פעולה קונקרטית ואחריות אישית — לא רק תובנות',
+    'pkg-promise':   'יוצאים כשה-One Big Thing שלכם מוגדר, עם תוכנית פעולה קונקרטית ואחריות אישית — לא רק תובנות',
     'val-label':     'למה זה עובד',
     'val-title':     'ערך שמורגש מהמפגש הראשון',
-    'val-sub':       'מתודולוגיית OBT חוצה את הרעש ומוצאת את ה-Shift האחד שמניב את מירב המינוף — כך מפסיקים לפזר אנרגיה לכל הכיוונים.',
+    'val-sub':       'מתודולוגיית One Big Thing חוצה את הרעש ומוצאת את השינוי האחד שמניב את מירב המינוף — כך מפסיקים לפזר אנרגיה לכל הכיוונים.',
     'v1-title':      'שינוי אחד ממוקד',
     'v1-text':       'לא עשרה דברים לתקן. ה-One Big Thing — ה-Shift המדויק שיוצר את המומנטום הרב ביותר בהקשר הספציפי שלכם.',
     'v2-title':      'עובד מעבר למרחקים',
@@ -625,8 +646,8 @@ const STRINGS = {
     'how-title':     'איך התהליך נראה',
     'how-sub':       'שני מפגשים עמוקים עושים את העבודה הכבדה. שתי פגישות קצרות 1:1 מחזיקות אתכם ממוקדים ואחראים לאורך הדרך.',
     's1-tag':        'מפגש קבוצתי 1 · 3 שעות · זום',
-    's1-title':      'פתיחה, הצגת המודל, וזיקוק ה-OBT שלכם',
-    's1-text':       'פותחים את התהליך עם היכרות אישית עם מתודולוגיית OBT. יחד מזהים ומזקקים את ה-One Big Thing — השינוי בעל המינוף הגבוה ביותר — ומשקפים אותו בכנות מול המציאות הנוכחית.',
+    's1-title':      'פתיחה, הצגת המודל, וזיקוק ה-OBT (One Big Thing) שלכם',
+    's1-text':       'פותחים את התהליך עם היכרות אישית עם מתודולוגיית OBT (One Big Thing). יחד מזהים ומזקקים את ה-One Big Thing — השינוי בעל המינוף הגבוה ביותר — ומשקפים אותו בכנות מול המציאות הנוכחית.',
     's2-tag':        'מפגש קבוצתי 2 · 3 שעות · זום',
     's2-title':      'התחייבויות מתחרות, הנחות יסוד, ותוכנית הפעולה',
     's2-text':       'מגלים את ההתחייבויות המתחרות והנחות היסוד שמחזיקות בשקט את הסטטוס קוו. מתוך הבהירות הזו בונים תוכנית פעולה אישית, צעד-אחר-צעד, שאפשר לבצע בפועל.',
@@ -646,8 +667,8 @@ const STRINGS = {
     'who5':          'טלנט שיש לו/ה מוטיבציה, אבל צריך/ה לזהות את המנוף הנכון',
     'who6':          'מי שמוכן/ה לעשות עבודה פנימית כנה — ולתרגם אותה לפעולה',
     'fac-label':     'המנחים',
-    'fac-title':     '45 שנות ניסיון משולבות בעבודה ארגונית',
-    'fac-sub':       'שני אנשי מקצוע שמבינים ארגונים — אחד מצד הניהול, אחד מצד הפסיכולוגיה האנושית.',
+    'fac-title':     'גלעד קילון ויהודה בידרמן',
+    'fac-sub':       'שני יועצים ארגוניים שעובדים עם אנשים בתוך ארגונים — כל אחד מהם מביא זווית ראייה שונה.',
     'fac1-title':    'יועץ ארגוני, MA · 20+ שנות ניסיון',
     'fac1-bio':      'מלווה מנהלים ואנשי מפתח בפיתוח מנהיגות, שינוי ארגוני ושיפור ביצועים. מביא פרספקטיבה מעשית ומבוססת שטח לכל מפגש.',
     'fac2-title':    'פסיכולוג ויועץ ארגוני, MA · 25+ שנות ניסיון',
