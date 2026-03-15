@@ -304,10 +304,21 @@ html[lang="en"] .cta-title{letter-spacing:-.5px}
   cursor:pointer;text-decoration:none;transition:all .2s ease;
 }
 .btn-secondary:hover{border-color:rgba(245,158,11,.3);background:var(--gold-d)}
-.cta-phones{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;font-size:14px;color:var(--text-s)}
-.cta-phones a{color:var(--text-s);text-decoration:none;transition:color .2s}
-.cta-phones a:hover{color:var(--gold)}
-.cta-phones strong{color:var(--text)}
+.cta-phones{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:4px}
+.cta-phones-label{font-size:13px;color:var(--text-m)}
+.wa-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.wa-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(37,211,102,.08);
+  border:1.5px solid rgba(37,211,102,.35);
+  color:#4ade80;
+  font-size:14px;font-weight:600;font-family:inherit;
+  padding:11px 22px;border-radius:var(--r-sm);
+  text-decoration:none;transition:all .2s ease;
+  white-space:nowrap;
+}
+.wa-btn:hover{background:rgba(37,211,102,.16);border-color:rgba(37,211,102,.6);transform:translateY(-1px)}
+.wa-btn svg{flex-shrink:0;fill:#25d366}
 
 /* ── FOOTER ── */
 footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-size:13px;color:var(--text-m)}
@@ -324,7 +335,18 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-
   .package-card{padding:28px 20px}
   .remote-callout{flex-direction:column;gap:12px}
   .cta-box{padding:36px 20px}
-  .header-right{gap:8px}
+  .header-right{gap:6px}
+
+  /* Header mobile cleanup */
+  .logo-tagline{display:none}
+  .logo-divider{display:none}
+  .logo-obt{font-size:15px}
+  .header-cta{display:none}
+  .lang-btn{padding:5px 9px;font-size:11px}
+  header{padding:12px 0}
+  .logo-mark{width:30px;height:30px;border-radius:6px}
+  .logo-mark svg{width:16px;height:16px}
+  .header-left{gap:8px}
 }
 
 ::selection{background:rgba(245,158,11,.2);color:#fff}
@@ -539,9 +561,17 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-
         <a href="tel:+972525759514" class="btn-secondary" data-i18n="cta-btn2">📞 &nbsp;Yehuda: +972 52-575-9514</a>
       </div>
       <div class="cta-phones">
-        <span data-i18n="cta-wa-label">Or message us on WhatsApp:</span>
-        <a href="https://wa.me/972526417512" target="_blank" rel="noopener"><strong data-i18n="cta-wa1">Gilad ↗</strong></a>
-        <a href="https://wa.me/972525759514" target="_blank" rel="noopener"><strong data-i18n="cta-wa2">Yehuda ↗</strong></a>
+        <div class="cta-phones-label" data-i18n="cta-wa-label">Or message us on WhatsApp:</div>
+        <div class="wa-buttons">
+          <a class="wa-btn" href="https://wa.me/972526417512" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="cta-wa1">Gilad</span>
+          </a>
+          <a class="wa-btn" href="https://wa.me/972525759514" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="cta-wa2">Yehuda</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -627,8 +657,8 @@ const STRINGS = {
     'cta-btn1':      '📞 &nbsp;Gilad: +972 52-641-7512',
     'cta-btn2':      '📞 &nbsp;Yehuda: +972 52-575-9514',
     'cta-wa-label':  'Or message us on WhatsApp:',
-    'cta-wa1':       'Gilad ↗',
-    'cta-wa2':       'Yehuda ↗',
+    'cta-wa1':       'Gilad',
+    'cta-wa2':       'Yehuda',
     'footer-text':   'Kilon &amp; Biderman Consulting &nbsp;·&nbsp; OBT – One Big Thing &nbsp;·&nbsp;',
   },
   he: {
@@ -702,8 +732,8 @@ const STRINGS = {
     'cta-btn1':      '📞 &nbsp;גלעד: 052-641-7512',
     'cta-btn2':      '📞 &nbsp;יהודה: 052-575-9514',
     'cta-wa-label':  'או שלחו לנו הודעה בוואטסאפ:',
-    'cta-wa1':       'גלעד ↗',
-    'cta-wa2':       'יהודה ↗',
+    'cta-wa1':       'גלעד',
+    'cta-wa2':       'יהודה',
     'footer-text':   'קילון ובידרמן ייעוץ ארגוני &nbsp;·&nbsp; OBT – One Big Thing &nbsp;·&nbsp;',
   }
 };
