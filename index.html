@@ -22,6 +22,9 @@
   --green:#10b981;
   --green-d:rgba(16,185,129,0.1);
   --green-b:rgba(16,185,129,0.25);
+  --purple:#a78bfa;
+  --purple-d:rgba(139,92,246,0.1);
+  --purple-b:rgba(139,92,246,0.28);
   --text:#f0f6ff;
   --text-s:#8ba3c4;
   --text-m:#4a6380;
@@ -208,6 +211,15 @@ html[lang="en"] .section-title{letter-spacing:-.5px}
   font-size:15px;font-weight:600;color:#6ee7b7;
   display:flex;align-items:center;gap:10px;justify-content:center;
 }
+.ai-callout{
+  background:var(--purple-d);border:1px solid var(--purple-b);
+  border-radius:var(--r-sm);padding:18px 22px;
+  display:flex;align-items:flex-start;gap:14px;
+}
+.ai-callout-icon{font-size:22px;flex-shrink:0;line-height:1;margin-top:2px}
+.ai-callout-body{}
+.ai-callout-title{font-size:13px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.ai-callout-text{font-size:14px;color:rgba(196,181,253,.8);line-height:1.6}
 
 /* ── VALUE ── */
 .value-section{margin-bottom:60px}
@@ -402,6 +414,13 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-
         <span>✓</span>
         <span data-i18n="pkg-promise">You leave with a defined OBT, a concrete action plan, and personal accountability — not just insights</span>
       </div>
+      <div class="ai-callout">
+        <div class="ai-callout-icon">🤖</div>
+        <div class="ai-callout-body">
+          <div class="ai-callout-title" data-i18n="ai-callout-title">AI-Powered Tools Included</div>
+          <div class="ai-callout-text" data-i18n="ai-callout-text">The program integrates custom AI-based diagnostic and process-management tools built specifically for OBT (One Big Thing) — so the work between sessions is structured, actionable, and trackable.</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -550,7 +569,9 @@ const STRINGS = {
     'callout-text':  'Whether your team spans cities, time zones, or continents — this program delivers the same depth of organizational insight without anyone needing to be in the same room. All sessions run live on Zoom, with full facilitation, reflection, and structured follow-through.',
     'pkg-label':     'The Program',
     'pkg-title':     '2 group sessions &nbsp;+&nbsp; 2 personal check-ins',
-    'pkg-sub':       'Two in-depth group sessions on Zoom to do the core work, plus two short 1:1 check-ins for personal support and follow-through. The program integrates AI-based diagnostic and process-management tools built specifically for OBT (One Big Thing).',
+    'pkg-sub':       'Two in-depth group sessions on Zoom to do the core work, plus two short 1:1 check-ins for personal support and follow-through.',
+    'ai-callout-title': 'AI-Powered Tools Included',
+    'ai-callout-text':  'The program integrates custom AI-based diagnostic and process-management tools built specifically for OBT (One Big Thing) — so the work between sessions is structured, actionable, and trackable.',
     'sess1-label':   'Group Zoom Sessions',
     'sess1-desc':    'Opening, the One Big Thing model, distilling your OBT (One Big Thing), and confronting it with reality',
     'sess1-detail':  '📹 &nbsp;Zoom · 3 hours each',
@@ -623,7 +644,9 @@ const STRINGS = {
     'callout-text':  'בין אם הצוות שלכם פרוס על פני ערים, אזורי זמן או יבשות — התוכנית מספקת את אותו עומק של תובנות ארגוניות מבלי שמישהו יצטרך להיות באותו חדר. כל המפגשים מתנהלים חי בזום, עם ליווי מלא, רפלקציה ומעקב מובנה.',
     'pkg-label':     'התוכנית',
     'pkg-title':     '2 מפגשים קבוצתיים &nbsp;+&nbsp; 2 פגישות אישיות',
-    'pkg-sub':       'שני מפגשים עמוקים בזום לביצוע העבודה המרכזית, בתוספת שתי פגישות קצרות 1:1 לתמיכה אישית ומעקב. התוכנית משלבת כלי אבחון וניהול תהליך מבוססי בינה מלאכותית שנבנו במיוחד ל-OBT (One Big Thing).',
+    'pkg-sub':       'שני מפגשים עמוקים בזום לביצוע העבודה המרכזית, בתוספת שתי פגישות קצרות 1:1 לתמיכה אישית ומעקב.',
+    'ai-callout-title': 'כלי בינה מלאכותית ייעודיים',
+    'ai-callout-text':  'התוכנית משלבת כלי אבחון וניהול תהליך מבוססי בינה מלאכותית שנבנו במיוחד ל-OBT (One Big Thing) — כדי שהעבודה בין המפגשים תהיה מובנית, ניתנת לביצוע ומעוקבת.',
     'sess1-label':   'מפגשי זום קבוצתיים',
     'sess1-desc':    'פתיחה, מודל ה-One Big Thing, זיקוק ה-OBT (One Big Thing) שלכם ושיקופו מול המציאות',
     'sess1-detail':  '📹 &nbsp;זום · 3 שעות כל אחד',
