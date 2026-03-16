@@ -194,6 +194,8 @@ html[lang="en"] .section-title{letter-spacing:-.5px}
   border-radius:var(--r);padding:28px 22px;text-align:center;
 }
 .session-block.blue-block{background:var(--blue-d);border-color:var(--blue-b)}
+.followup-row{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:4px}
+.session-block.gold-block{background:var(--gold-d);border-color:var(--border-g);width:100%}
 .session-num{font-size:42px;font-weight:900;line-height:1;margin-bottom:8px}
 .session-num.gold{color:var(--gold)}
 .session-num.blue{color:#60a5fa}
@@ -248,10 +250,12 @@ html[lang="en"] .section-title{letter-spacing:-.5px}
   font-size:13px;font-weight:800;color:var(--gold);
 }
 .step-num.is-blue{background:var(--blue-d);border-color:var(--blue-b);color:#60a5fa}
+.step-num.is-gold{background:var(--gold-d);border-color:var(--border-g);color:var(--gold)}
 .step-line{width:1px;flex:1;background:var(--border);min-height:20px;margin-top:4px}
 .step-num-wrap.last .step-line{display:none}
 .step-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);opacity:.6;margin-bottom:5px}
 .step-tag.blue-tag{color:#60a5fa}
+.step-tag.gold-tag{color:var(--gold);opacity:1}
 .step-title{font-size:17px;font-weight:700;margin-bottom:6px}
 .step-text{font-size:14px;color:var(--text-s);line-height:1.75}
 
@@ -319,6 +323,42 @@ html[lang="en"] .cta-title{letter-spacing:-.5px}
 }
 .wa-btn:hover{background:rgba(37,211,102,.16);border-color:rgba(37,211,102,.6);transform:translateY(-1px)}
 .wa-btn svg{flex-shrink:0;fill:#25d366}
+
+/* ── CONTACT FORM ── */
+.form-divider{display:flex;align-items:center;gap:14px;margin:28px 0;color:var(--text-m);font-size:13px}
+.form-divider::before,.form-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.contact-form{display:flex;flex-direction:column;gap:18px;text-align:start}
+.form-group{display:flex;flex-direction:column;gap:7px}
+.form-label{font-size:13px;font-weight:600;color:var(--text-s)}
+.form-label span{color:var(--text-m);font-weight:400}
+.form-input,.form-textarea{
+  width:100%;background:rgba(255,255,255,.05);
+  border:1.5px solid var(--border);
+  border-radius:var(--r-sm);
+  color:var(--text);font-family:inherit;font-size:15px;
+  padding:13px 16px;outline:none;
+  transition:border-color .2s;
+}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--text-m)}
+.form-input:focus,.form-textarea:focus{border-color:var(--blue)}
+.form-textarea{resize:vertical;min-height:96px;line-height:1.6}
+.form-submit{
+  width:100%;background:linear-gradient(135deg,#f59e0b,#f97316);
+  color:#07101f;font-weight:800;font-family:inherit;font-size:16px;
+  padding:15px 24px;border:none;border-radius:var(--r);
+  cursor:pointer;transition:all .2s ease;
+  box-shadow:0 4px 20px rgba(245,158,11,.25);
+}
+.form-submit:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(245,158,11,.35)}
+.form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.form-success{
+  display:none;text-align:center;padding:28px 20px;
+  background:var(--green-d);border:1px solid var(--green-b);
+  border-radius:var(--r);
+}
+.form-success-icon{font-size:36px;margin-bottom:12px}
+.form-success-title{font-size:18px;font-weight:700;color:#6ee7b7;margin-bottom:8px}
+.form-success-text{font-size:14px;color:rgba(110,231,183,.7)}
 
 /* ── FOOTER ── */
 footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-size:13px;color:var(--text-m)}
@@ -432,6 +472,15 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-
           <div class="session-detail" data-i18n="sess2-detail">🎯 &nbsp;Zoom · 30 min each</div>
         </div>
       </div>
+      <div class="followup-row">
+        <div class="divider-plus">+</div>
+        <div class="session-block gold-block">
+          <div class="session-num gold">1</div>
+          <div class="session-label" data-i18n="sess3-label">Group Follow-up Session</div>
+          <div class="session-desc" data-i18n="sess3-desc">The group reconvenes to present progress, share successes, and learn from each other's experience</div>
+          <div class="session-detail" data-i18n="sess3-detail">📹 &nbsp;Zoom · ~6 weeks after</div>
+        </div>
+      </div>
       <div class="package-promise">
         <span>✓</span>
         <span data-i18n="pkg-promise">You leave with a defined OBT, a concrete action plan, and personal accountability — not just insights</span>
@@ -506,11 +555,19 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-
         </div>
       </div>
       <div class="step-item">
-        <div class="step-num-wrap last"><div class="step-num is-blue">4</div><div class="step-line"></div></div>
+        <div class="step-num-wrap"><div class="step-num is-blue">4</div><div class="step-line"></div></div>
         <div>
           <div class="step-tag blue-tag" data-i18n="s4-tag">1:1 Session 2 · 30 min · Zoom</div>
           <div class="step-title" data-i18n="s4-title">Follow-through and closing the loop</div>
-          <div class="step-text" data-i18n="s4-text">What's working? What still needs attention? Locking in the progress, consolidating learning, and leaving with a personal toolkit for sustaining the change independently.</div>
+          <div class="step-text" data-i18n="s4-text">A short session to consolidate progress, address what came up, and close the process.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-wrap last"><div class="step-num is-gold">5</div><div class="step-line"></div></div>
+        <div>
+          <div class="step-tag gold-tag" data-i18n="s5-tag">Group Follow-up · Zoom · ~6 weeks later</div>
+          <div class="step-title" data-i18n="s5-title">Presenting progress &amp; sharing wins</div>
+          <div class="step-text" data-i18n="s5-text">The group reconvenes to present progress, share successes, and learn from each other's experience. A powerful moment for consolidating change and celebrating what moved.</div>
         </div>
       </div>
     </div>
@@ -556,10 +613,35 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-
       <div class="remote-badge" style="margin:0 auto 22px" data-i18n="cta-badge">🚀 &nbsp;Ready to start</div>
       <div class="cta-title" data-i18n="cta-title">Book a free intro call</div>
       <p class="cta-sub" data-i18n="cta-sub">15 minutes on Zoom — we'll listen, ask a few questions, and together we'll figure out whether this is the right fit for you right now.<br>No commitment. No pressure.</p>
-      <div class="cta-buttons">
-        <a href="tel:+972526417512" class="btn-primary" data-i18n="cta-btn1">📞 &nbsp;Gilad: +972 52-641-7512</a>
-        <a href="tel:+972525759514" class="btn-secondary" data-i18n="cta-btn2">📞 &nbsp;Yehuda: +972 52-575-9514</a>
+
+      <!-- Contact Form -->
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="cf-name" data-i18n="cf-name-label">Full name <span>*</span></label>
+          <input class="form-input" id="cf-name" name="name" type="text" required data-i18n-placeholder="cf-name-ph" placeholder="Israel Israeli">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-org" data-i18n="cf-org-label">Organization &amp; role</label>
+          <input class="form-input" id="cf-org" name="organization" type="text" data-i18n-placeholder="cf-org-ph" placeholder="Company name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-phone" data-i18n="cf-phone-label">Mobile number <span>*</span></label>
+          <input class="form-input" id="cf-phone" name="phone" type="tel" required data-i18n-placeholder="cf-phone-ph" placeholder="050-0000000">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-notes" data-i18n="cf-notes-label">Notes <span data-i18n="cf-optional">(optional)</span></label>
+          <textarea class="form-textarea" id="cf-notes" name="message" data-i18n-placeholder="cf-notes-ph" placeholder="Write here..."></textarea>
+        </div>
+        <button class="form-submit" type="submit" data-i18n="cf-submit">Send details →</button>
+      </form>
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon">✅</div>
+        <div class="form-success-title" data-i18n="cf-success-title">Details received!</div>
+        <div class="form-success-text" data-i18n="cf-success-text">We'll be in touch within one business day.</div>
       </div>
+
+      <div class="form-divider"><span data-i18n="cta-or">or contact us directly</span></div>
+      <div class="cta-buttons">
       <div class="cta-phones">
         <div class="cta-phones-label" data-i18n="cta-wa-label">Or message us on WhatsApp:</div>
         <div class="wa-buttons">
@@ -579,8 +661,7 @@ footer{border-top:1px solid var(--border);padding:24px 0;text-align:center;font-
 
 <footer>
   <div class="container">
-    <span data-i18n="footer-text">Kilon &amp; Biderman Consulting &nbsp;·&nbsp; OBT – One Big Thing &nbsp;·&nbsp;</span>
-    <a href="https://obt.kilon-consulting.com" style="color:inherit;text-decoration:none">obt.kilon-consulting.com</a>
+    <span data-i18n="footer-text">Kilon &amp; Biderman Consulting &nbsp;·&nbsp; OBT – One Big Thing</span>
   </div>
 </footer>
 
@@ -592,13 +673,13 @@ const STRINGS = {
     'header-cta':    'Book a Call →',
     'badge-remote':  '🌍 &nbsp;100% Remote · Zoom · Anywhere',
     'hero-title':    'Find the one change<em>that moves everything.</em>',
-    'hero-sub':      'OBT stands for <strong>One Big Thing</strong> — the single most leveraged change available to you right now. This program helps you find it, understand what\'s blocking it, and build a plan to act on it. Delivered entirely over Zoom.',
+    'hero-sub':      'The OBT (One Big Thing) program delivers a deep, personal, and precise process within the organization — combining psychological insight with technological innovation. The goal is singular: to identify each person\'s Archimedean point, remove what blocks them, and enable them to express their full potential in a meaningful and effective way.',
     'hero-cta':      'Let\'s talk →',
     'hero-note':     'Fully remote · No travel required · Start within days',
     'callout-title': 'Designed for distributed teams and remote leaders',
     'callout-text':  'Whether your team spans cities, time zones, or continents — this program delivers the same depth of organizational insight without anyone needing to be in the same room. All sessions run live on Zoom, with full facilitation, reflection, and structured follow-through.',
     'pkg-label':     'The Program',
-    'pkg-title':     '2 group sessions &nbsp;+&nbsp; 2 personal check-ins',
+    'pkg-title':     '2 group sessions &nbsp;+&nbsp; 2 personal check-ins &nbsp;+&nbsp; 1 follow-up',
     'pkg-sub':       'Two in-depth group sessions on Zoom to do the core work, plus two short 1:1 check-ins for personal support and follow-through.',
     'ai-callout-title': 'AI-Powered Tools Included',
     'ai-callout-text':  'The program integrates custom AI-based diagnostic and process-management tools built specifically for OBT (One Big Thing) — so the work between sessions is structured, actionable, and trackable.',
@@ -608,6 +689,9 @@ const STRINGS = {
     'sess2-label':   '1:1 Coaching Sessions',
     'sess2-desc':    'Personal support during the implementation phase',
     'sess2-detail':  '🎯 &nbsp;Zoom · 30 min each',
+    'sess3-label':   'Group Follow-up Session',
+    'sess3-desc':    'The group reconvenes to present progress, share successes, and learn from each other\'s experience',
+    'sess3-detail':  '📹 &nbsp;Zoom · ~6 weeks after',
     'pkg-promise':   'You leave knowing your One Big Thing, with a concrete action plan and personal accountability — not just insights',
     'val-label':     'Why It Works',
     'val-title':     'Value you feel from session one',
@@ -622,19 +706,22 @@ const STRINGS = {
     'v4-text':       'No months of preparation. Two deep sessions and two short check-ins — so change starts while the momentum is alive.',
     'how-label':     'The Process',
     'how-title':     'How the program unfolds',
-    'how-sub':       'Two deep group sessions do the heavy lifting. Two short 1:1 sessions keep you grounded and accountable between and after.',
+    'how-sub':       'Two group sessions are the core of the process. Two short 1:1 sessions keep you grounded and accountable between and after.',
     's1-tag':        'Group Session 1 · 3 hours · Zoom',
     's1-title':      'Opening, the OBT (One Big Thing) model, and distilling your One Big Thing',
     's1-text':       'We open the process with a personal introduction to the OBT (One Big Thing) methodology. Together we work to identify and distill your One Big Thing — the most leveraged potential change — and reflect it honestly against your current reality.',
     's2-tag':        'Group Session 2 · 3 hours · Zoom',
     's2-title':      'Competing commitments, underlying assumptions, and your action plan',
-    's2-text':       'We surface the competing commitments and underlying assumptions that silently maintain the status quo. With that clarity, we build a personal, step-by-step action plan you can actually commit to and implement.',
+    's2-text':       'We surface the competing commitments and underlying assumptions that act as a foot on the brakes — keeping change from happening. With that clarity, we build a personal, step-by-step action plan you can actually commit to and implement.',
     's3-tag':        '1:1 Session 1 · 30 min · Zoom',
     's3-title':      'Support during implementation',
     's3-text':       'A focused 1:1 to support you as you put the plan into practice.',
     's4-tag':        '1:1 Session 2 · 30 min · Zoom',
     's4-title':      'Closing the loop',
     's4-text':       'A short session to consolidate progress, address what came up, and close the process.',
+    's5-tag':        'Group Follow-up · Zoom · ~6 weeks later',
+    's5-title':      'Presenting progress &amp; sharing wins',
+    's5-text':       'The group reconvenes to present progress, share successes, and learn from each other\'s experience. A powerful moment for consolidating change and celebrating what moved.',
     'who-label':     'Who It\'s For',
     'who-title':     'Anyone an organization is choosing to invest in',
     'who-sub':       'Not just managers. This process is equally valuable for expert contributors, high-potential employees, and talents at any level.',
@@ -659,7 +746,20 @@ const STRINGS = {
     'cta-wa-label':  'Or message us on WhatsApp:',
     'cta-wa1':       'Gilad',
     'cta-wa2':       'Yehuda',
-    'footer-text':   'Kilon &amp; Biderman Consulting &nbsp;·&nbsp; OBT – One Big Thing &nbsp;·&nbsp;',
+    'cta-or':        'or contact us directly',
+    'cf-name-label': 'Full name',
+    'cf-name-ph':    'Israel Israeli',
+    'cf-org-label':  'Organization &amp; role',
+    'cf-org-ph':     'Company name',
+    'cf-phone-label':'Mobile number',
+    'cf-phone-ph':   '050-0000000',
+    'cf-notes-label':'Notes',
+    'cf-optional':   '(optional)',
+    'cf-notes-ph':   'Write here...',
+    'cf-submit':     'Send details →',
+    'cf-success-title': 'Details received!',
+    'cf-success-text':  'We\'ll be in touch within one business day.',
+    'footer-text':   'Kilon &amp; Biderman Consulting &nbsp;·&nbsp; OBT – One Big Thing',
   },
   he: {
     'page-title':    'OBT מרחוק – מצאו את ה-One Big Thing שלכם, מכל מקום',
@@ -667,13 +767,13 @@ const STRINGS = {
     'header-cta':    'לשיחת היכרות ←',
     'badge-remote':  '🌍 &nbsp;100% מרחוק · זום · מכל מקום',
     'hero-title':    'מצאו את השינוי האחד<em>שמניע את הכל.</em>',
-    'hero-sub':      'OBT הוא <strong>One Big Thing</strong> — השינוי האחד בעל המינוף הגבוה ביותר שזמין לכם עכשיו. התוכנית עוזרת לכם למצוא אותו, להבין מה חוסם אותו, ולבנות תוכנית לביצוע. הכל בזום.',
+    'hero-sub':      'תוכנית ה-OBT (One Big Thing) מעניקה תהליך עומק אישי ומדויק בתוך הארגון, המשלב תובנות פסיכולוגיות עם חדשנות טכנולוגית. המטרה היא אחת: לזהות את הנקודה הארכימדית של כל עובד, לשחרר חסמים, ולאפשר לו להביא לידי ביטוי את מלוא הפוטנציאל שלו בצורה אפקטיבית ומלאה.',
     'hero-cta':      'בואו נדבר ←',
     'hero-note':     'מרחוק לגמרי · ללא נסיעות · מתחילים תוך ימים',
     'callout-title': 'מותאם לצוותים מבוזרים ומנהלים מרחוק',
     'callout-text':  'בין אם הצוות שלכם פרוס על פני ערים, אזורי זמן או יבשות — התוכנית מספקת את אותו עומק של תובנות ארגוניות מבלי שמישהו יצטרך להיות באותו חדר. כל המפגשים מתנהלים חי בזום, עם ליווי מלא, רפלקציה ומעקב מובנה.',
     'pkg-label':     'התוכנית',
-    'pkg-title':     '2 מפגשים קבוצתיים &nbsp;+&nbsp; 2 פגישות אישיות',
+    'pkg-title':     '2 מפגשים קבוצתיים &nbsp;+&nbsp; 2 פגישות אישיות &nbsp;+&nbsp; מפגש סיכום',
     'pkg-sub':       'שני מפגשים עמוקים בזום לביצוע העבודה המרכזית, בתוספת שתי פגישות קצרות 1:1 לתמיכה אישית ומעקב.',
     'ai-callout-title': 'כלי בינה מלאכותית ייעודיים',
     'ai-callout-text':  'התוכנית משלבת כלי אבחון וניהול תהליך מבוססי בינה מלאכותית שנבנו במיוחד ל-OBT (One Big Thing) — כדי שהעבודה בין המפגשים תהיה מובנית, ניתנת לביצוע ומעוקבת.',
@@ -683,10 +783,13 @@ const STRINGS = {
     'sess2-label':   'פגישות אישיות 1:1',
     'sess2-desc':    'תמיכה אישית בשלב היישום',
     'sess2-detail':  '🎯 &nbsp;זום · 30 דקות כל אחד',
+    'sess3-label':   'מפגש סיכום קבוצתי',
+    'sess3-desc':    'הקבוצה מתכנסת מחדש להציג התקדמות, לשתף בהצלחות וללמוד מניסיון משותף',
+    'sess3-detail':  '📹 &nbsp;זום · כ-6 שבועות לאחר מכן',
     'pkg-promise':   'יוצאים כשה-One Big Thing שלכם מוגדר, עם תוכנית פעולה קונקרטית ואחריות אישית — לא רק תובנות',
     'val-label':     'למה זה עובד',
     'val-title':     'ערך שמורגש מהמפגש הראשון',
-    'val-sub':       'מתודולוגיית One Big Thing חוצה את הרעש ומוצאת את השינוי האחד שמניב את מירב המינוף — כך מפסיקים לפזר אנרגיה לכל הכיוונים.',
+    'val-sub':       'מתודולוגיית One Big Thing מאתרת את השינוי האחד בעל ההשפעה הגדולה ביותר — ומאפשרת להפסיק לפזר אנרגיה על הכל בבת אחת.',
     'v1-title':      'שינוי אחד ממוקד',
     'v1-text':       'לא עשרה דברים לתקן. ה-One Big Thing — ה-Shift המדויק שיוצר את המומנטום הרב ביותר בהקשר הספציפי שלכם.',
     'v2-title':      'עובד מעבר למרחקים',
@@ -697,19 +800,22 @@ const STRINGS = {
     'v4-text':       'ללא חודשים של הכנה. שני מפגשים עמוקים ושתי פגישות קצרות — כדי שהשינוי יתחיל בזמן שהמומנטום חי.',
     'how-label':     'התהליך',
     'how-title':     'איך התהליך נראה',
-    'how-sub':       'שני מפגשים עמוקים עושים את העבודה הכבדה. שתי פגישות קצרות 1:1 מחזיקות אתכם ממוקדים ואחראים לאורך הדרך.',
+    'how-sub':       'שני מפגשים קבוצתיים הם ליבת התהליך. שתי פגישות קצרות 1:1 מחזיקות אתכם ממוקדים ואחראים לאורך הדרך.',
     's1-tag':        'מפגש קבוצתי 1 · 3 שעות · זום',
     's1-title':      'פתיחה, הצגת המודל, וזיקוק ה-OBT (One Big Thing) שלכם',
     's1-text':       'פותחים את התהליך עם היכרות אישית עם מתודולוגיית OBT (One Big Thing). יחד מזהים ומזקקים את ה-One Big Thing — השינוי בעל המינוף הגבוה ביותר — ומשקפים אותו בכנות מול המציאות הנוכחית.',
     's2-tag':        'מפגש קבוצתי 2 · 3 שעות · זום',
     's2-title':      'התחייבויות מתחרות, הנחות יסוד, ותוכנית הפעולה',
-    's2-text':       'מגלים את ההתחייבויות המתחרות והנחות היסוד שמחזיקות בשקט את הסטטוס קוו. מתוך הבהירות הזו בונים תוכנית פעולה אישית, צעד-אחר-צעד, שאפשר לבצע בפועל.',
+    's2-text':       'מזהים את ההתחייבויות המתחרות ואת הנחות היסוד שפועלות כרגל על הבלמים — ומונעות שינוי. מתוך הבהירות הזו בונים תוכנית פעולה אישית, צעד-אחר-צעד, שאפשר לבצע בפועל.',
     's3-tag':        'פגישה אישית 1 · 30 דקות · זום',
     's3-title':      'תמיכה בשלב היישום',
     's3-text':       'פגישת 1:1 ממוקדת לתמיכה בזמן שאתם מיישמים את התוכנית בשטח.',
     's4-tag':        'פגישה אישית 2 · 30 דקות · זום',
     's4-title':      'סגירת לולאה',
     's4-text':       'פגישה קצרה לגיבוש ההתקדמות, טיפול במה שעלה, וסיום התהליך.',
+    's5-tag':        'מפגש סיכום קבוצתי · זום · כ-6 שבועות לאחר מכן',
+    's5-title':      'הצגת התקדמות ושיתוף בהצלחות',
+    's5-text':       'הקבוצה מתכנסת מחדש — כל משתתף מציג את ההתקדמות שלו, משתפים בהצלחות וחוזרים על מה שעבד. רגע חזק לגיבוש השינוי.',
     'who-label':     'למי זה מתאים',
     'who-title':     'כל מי שהארגון בוחר להשקיע בו',
     'who-sub':       'לא רק מנהלים. התהליך מתאים באותה מידה לעובדים מומחים, טלנטים ובעלי פוטנציאל בכל רמה.',
@@ -734,7 +840,20 @@ const STRINGS = {
     'cta-wa-label':  'או שלחו לנו הודעה בוואטסאפ:',
     'cta-wa1':       'גלעד',
     'cta-wa2':       'יהודה',
-    'footer-text':   'קילון ובידרמן ייעוץ ארגוני &nbsp;·&nbsp; OBT – One Big Thing &nbsp;·&nbsp;',
+    'cta-or':        'או צרו קשר ישירות',
+    'cf-name-label': 'שם מלא',
+    'cf-name-ph':    'ישראל ישראלי',
+    'cf-org-label':  'ארגון ותפקיד',
+    'cf-org-ph':     'שם החברה',
+    'cf-phone-label':'טלפון נייד',
+    'cf-phone-ph':   '050-0000000',
+    'cf-notes-label':'הערות',
+    'cf-optional':   '(אופציונלי)',
+    'cf-notes-ph':   'כתבו כאן...',
+    'cf-submit':     'שליחת פרטים לתיאום ←',
+    'cf-success-title': 'הפרטים התקבלו!',
+    'cf-success-text':  'ניצור איתכם קשר תוך יום עסקים אחד.',
+    'footer-text':   'קילון ובידרמן ייעוץ ארגוני &nbsp;·&nbsp; OBT – One Big Thing',
   }
 };
 
@@ -761,9 +880,45 @@ function setLang(lang) {
     }
   });
 
+  // update placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (STRINGS[lang][key] !== undefined) {
+      el.placeholder = STRINGS[lang][key];
+    }
+  });
+
   // persist preference
   try { localStorage.setItem('obt-lang', lang); } catch(e){}
 }
+
+// Formspree AJAX submission
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.form-submit');
+  const successBox = document.getElementById('form-success');
+  btn.disabled = true;
+  btn.textContent = '...';
+  try {
+    const resp = await fetch('https://formspree.io/f/xblvnqjg', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (resp.ok) {
+      form.style.display = 'none';
+      successBox.style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.setAttribute('data-i18n', 'cf-submit');
+      btn.innerHTML = STRINGS[currentLang]['cf-submit'];
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.innerHTML = STRINGS[currentLang]['cf-submit'];
+  }
+});
 
 // restore saved preference or detect browser language
 (function() {
